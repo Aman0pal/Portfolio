@@ -1,8 +1,8 @@
 {
   "name": "Aman — AI & ML Engineer",
-  "short_name": "Aman Portfolio",
+  "short_name": "Aman",
   "description": "Portfolio of Aman, AI & ML Engineer",
-  "start_url": "./",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#050608",

@@ -1,7 +1,11 @@
-const CACHE_NAME = 'aman-pwa-v1';
+const CACHE_NAME = 'aman-portfolio-v1';
 const ASSETS_TO_CACHE = [
   './',
-  './manifest.json'
+  './index.html',
+  './manifest.json',
+  './profile.jpeg',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
