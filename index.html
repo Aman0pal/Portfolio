@@ -6,11 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aman — AI &amp; ML Engineer</title>
 
-  <!-- Aesthetic Tab Favicon (Enlarged Letter 'A' inside Modern Square) -->
-  <!-- Aesthetic Solid Square Tab Favicon -->
+  <!-- PWA & Mobile Meta Tags -->
+  <meta name="theme-color" content="#10b981" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Aman" />
+
+  <!-- Single-File Inline Web App Manifest (Data URI) -->
+  <link rel="manifest" href='data:application/manifest+json,{"name":"Aman — AI & ML Engineer","short_name":"Aman","start_url":".","display":"standalone","background_color":"#050608","theme_color":"#10b981","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 512 512%27%3E%3Crect width=%27512%27 height=%27512%27 rx=%27128%27 fill=%27%2310b981%27/%3E%3Ctext x=%2750%25%27 y=%2755%25%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27 font-family=%27sans-serif%27 font-weight=%27800%27 font-size=%27320%27 fill=%27%23050608%27%3EA%3C/text%3E%3C/svg%3E","sizes":"512x512","type":"image/svg+xml","purpose":"any maskable"}]}' />
+
+  <!-- Tab Favicon -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2310b981'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Syne, sans-serif' font-weight='800' font-size='42' fill='%23050608'%3EA%3C/text%3E%3C/svg%3E" />
-  <!-- Aesthetic Google Fonts: Syne, Space Grotesk & JetBrains Mono -->
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -19,16 +29,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* ==========================================================================
-       TACTILE PALETTE & GLOW TOKENS
-       ========================================================================== */
     :root,
     [data-theme="dark"] {
       --font-display: 'Syne', sans-serif;
       --font-main: 'Space Grotesk', -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      /* Dark Theme: Obsidian Palette */
       --bg-root: #050608;
       --bg-surface: rgba(13, 16, 23, 0.72);
       --bg-surface-elevated: rgba(22, 27, 38, 0.65);
@@ -41,14 +47,12 @@
       --dot-color: rgba(255, 255, 255, 0.045);
       --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
 
-      /* Terminal Tokens */
       --term-bg: #090b10;
       --term-border: rgba(255, 255, 255, 0.08);
       --term-topbar: rgba(255, 255, 255, 0.02);
       --term-text: #94a3b8;
       --term-string: #e2e8f0;
 
-      /* High-Opacity Horizontal Elliptical White Beam (Fixed Dark Mode) */
       --ellipse-light: radial-gradient(ellipse 90% 48% at 50% 50%,
           rgba(255, 255, 255, 0.32) 0%,
           rgba(255, 255, 255, 0.16) 35%,
@@ -59,7 +63,6 @@
     }
 
     [data-theme="light"] {
-      /* Light Theme: Crisp Minimalist Slate */
       --bg-root: #f8fafc;
       --bg-surface: rgba(255, 255, 255, 0.85);
       --bg-surface-elevated: #f1f5f9;
@@ -72,14 +75,12 @@
       --dot-color: rgba(15, 23, 42, 0.05);
       --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
 
-      /* Terminal Tokens (Light) */
       --term-bg: #ffffff;
       --term-border: rgba(15, 23, 42, 0.1);
       --term-topbar: #f8fafc;
       --term-text: #475569;
       --term-string: #0f172a;
 
-      /* High-Opacity Light Mode Gradient */
       --ellipse-light: radial-gradient(ellipse 90% 48% at 50% 50%,
           rgba(255, 255, 255, 1) 0%,
           rgba(241, 245, 249, 0.9) 45%,
@@ -89,9 +90,6 @@
       --glow-emerald: 0 14px 32px -8px rgba(5, 150, 105, 0.18), 0 0 0 1px rgba(5, 150, 105, 0.4);
     }
 
-    /* ==========================================================================
-       BASE & AMBIENT ATMOSPHERE
-       ========================================================================== */
     * {
       margin: 0;
       padding: 0;
@@ -110,13 +108,10 @@
       overflow-x: hidden;
     }
 
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       font-family: var(--font-display);
     }
 
-    /* Subtle Dot Matrix Canvas */
     body::before {
       content: "";
       position: fixed;
@@ -130,7 +125,6 @@
       z-index: -2;
     }
 
-    /* Fixed Horizontal Ellipse White Light Effect */
     .horizontal-ellipse-glow {
       position: fixed;
       top: -60px;
@@ -164,9 +158,6 @@
       color: inherit;
     }
 
-    /* ==========================================================================
-       NAVBAR
-       ========================================================================== */
     .navbar {
       position: sticky;
       top: 1rem;
@@ -280,9 +271,6 @@
       display: none;
     }
 
-    /* ==========================================================================
-       HERO SECTION
-       ========================================================================== */
     .hero {
       padding-top: 4.5rem;
       padding-bottom: 4.5rem;
@@ -367,11 +355,9 @@
       0% {
         box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
       }
-
       70% {
         box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
       }
-
       100% {
         box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
       }
@@ -491,7 +477,6 @@
       transform: translateY(-3px);
     }
 
-    /* Terminal Window */
     .terminal-window {
       background: var(--term-bg);
       border: 1px solid var(--term-border);
@@ -525,17 +510,9 @@
       border-radius: 50%;
     }
 
-    .term-red {
-      background: #ff5f56;
-    }
-
-    .term-yellow {
-      background: #ffbd2e;
-    }
-
-    .term-green {
-      background: #27c93f;
-    }
+    .term-red { background: #ff5f56; }
+    .term-yellow { background: #ffbd2e; }
+    .term-green { background: #27c93f; }
 
     .terminal-body {
       padding: 1.5rem;
@@ -543,29 +520,12 @@
       font-family: var(--font-mono);
     }
 
-    .terminal-line {
-      margin-bottom: 0.7rem;
-    }
+    .terminal-line { margin-bottom: 0.7rem; }
+    .term-prompt { color: var(--accent-emerald); margin-right: 0.5rem; }
+    .term-string { color: var(--term-string); }
+    .term-key { color: var(--term-text); }
 
-    .term-prompt {
-      color: var(--accent-emerald);
-      margin-right: 0.5rem;
-    }
-
-    .term-string {
-      color: var(--term-string);
-    }
-
-    .term-key {
-      color: var(--term-text);
-    }
-
-    /* ==========================================================================
-       TACTILE BENTO CARDS
-       ========================================================================== */
-    .section-header {
-      margin-bottom: 3.5rem;
-    }
+    .section-header { margin-bottom: 3.5rem; }
 
     .section-label {
       font-family: var(--font-mono);
@@ -669,7 +629,6 @@
       color: var(--accent-emerald);
     }
 
-    /* Projects */
     .project-card {
       display: flex;
       flex-direction: column;
@@ -727,7 +686,6 @@
       background: rgba(16, 185, 129, 0.14);
     }
 
-    /* Resume Banner */
     .resume-frame {
       background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-elevated) 100%);
       border: 1px solid var(--border-subtle);
@@ -760,13 +718,9 @@
       font-size: 0.96rem;
     }
 
-    /* ==========================================================================
-       CONTACT GRID (MINIMIZED SINGLE-ROW LAYOUT)
-       ========================================================================== */
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      /* Exactly 5 equal blocks in 1 row */
       gap: 1rem;
     }
 
@@ -784,7 +738,6 @@
       justify-content: center;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       min-width: 0;
-      /* Prevents flex/grid overflowing */
     }
 
     .contact-item:hover {
@@ -823,45 +776,27 @@
       line-height: 1.3;
     }
 
-    /* ==========================================================================
-       RESPONSIVENESS
-       ========================================================================== */
     @media (max-width: 992px) {
       .hero-split {
         grid-template-columns: 1fr;
         gap: 3rem;
       }
-
-      .hero-title {
-        font-size: 2.8rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1.6rem;
-      }
-
+      .hero-title { font-size: 2.8rem; }
+      .hero-subtitle { font-size: 1.6rem; }
       .resume-frame {
         flex-direction: column;
         text-align: center;
         padding: 2rem;
       }
-
-      /* Tablet view still maintains clean 5-column or tight row structure */
       .contact-grid {
         grid-template-columns: repeat(5, 1fr);
         gap: 0.6rem;
       }
-
-      .contact-item {
-        padding: 1.2rem 0.5rem;
-      }
+      .contact-item { padding: 1.2rem 0.5rem; }
     }
 
     @media (max-width: 768px) {
-      .mobile-toggle {
-        display: grid;
-      }
-
+      .mobile-toggle { display: grid; }
       .nav-links {
         position: absolute;
         top: 70px;
@@ -875,12 +810,7 @@
         gap: 0.8rem;
         display: none;
       }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      /* On mobile screens, wrap smoothly into a horizontal swipeable or 2-row grid */
+      .nav-links.active { display: flex; }
       .contact-grid {
         grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
         gap: 0.8rem;
@@ -891,7 +821,6 @@
 
 <body>
 
-  <!-- Fixed Background Horizontal Ellipse Light (Does Not Move on Scroll) -->
   <div class="horizontal-ellipse-glow"></div>
 
   <!-- Floating Navbar -->
@@ -910,6 +839,10 @@
       </nav>
 
       <div class="nav-actions">
+        <!-- Direct Install Button in Navbar -->
+        <button id="pwa-install-btn" class="theme-btn" aria-label="Install App" style="display: none;" title="Install App">
+          <i class="fa-solid fa-download"></i>
+        </button>
         <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
           <i class="fa-solid fa-moon"></i>
         </button>
@@ -927,7 +860,6 @@
         <div class="hero-split">
           <div class="hero-left">
             <div class="hero-profile-header">
-              <!-- Profile Photo -->
               <div class="profile-photo-wrapper">
                 <img src="profile.jpeg" alt="Aman" class="profile-photo"
                   onerror="this.onerror=null; this.src='profile.jpg';" />
@@ -937,7 +869,6 @@
               </div>
             </div>
 
-            <!-- Headings -->
             <h1 class="hero-title">Hi, I'm Aman.</h1>
             <span class="hero-subtitle">AI &amp; ML Engineer</span>
 
@@ -969,7 +900,6 @@
             </div>
           </div>
 
-          <!-- Real-Time Terminal -->
           <div class="hero-right">
             <div class="terminal-window">
               <div class="terminal-topbar">
@@ -1176,7 +1106,7 @@
       </div>
     </section>
 
-    <!-- 6. Contact Section (Compact Single-Row Design) -->
+    <!-- 6. Contact Section -->
     <section id="contact" class="contact section">
       <div class="container">
         <div class="section-header">
@@ -1185,35 +1115,30 @@
         </div>
 
         <div class="contact-grid">
-          <!-- 1. Email -->
           <a href="mailto:apal15685@gmail.com" class="contact-item">
             <i class="fa-regular fa-envelope"></i>
             <h4>Email</h4>
             <p>apal15685@gmail.com</p>
           </a>
 
-          <!-- 2. LinkedIn -->
           <a href="https://www.linkedin.com/in/aman-534304289/" target="_blank" rel="noopener" class="contact-item">
             <i class="fa-brands fa-linkedin-in"></i>
             <h4>LinkedIn</h4>
             <p>aman-534304289</p>
           </a>
 
-          <!-- 3. Instagram -->
           <a href="https://www.instagram.com/aman.0pal/" target="_blank" rel="noopener" class="contact-item">
             <i class="fa-brands fa-instagram"></i>
             <h4>Instagram</h4>
             <p>@aman.0pal</p>
           </a>
 
-          <!-- 4. GitHub -->
           <a href="https://github.com/Aman0pal" target="_blank" rel="noopener" class="contact-item">
             <i class="fa-brands fa-github"></i>
             <h4>GitHub</h4>
             <p>Aman0pal</p>
           </a>
 
-          <!-- 5. Phone -->
           <a href="tel:+918009628785" class="contact-item">
             <i class="fa-solid fa-phone"></i>
             <h4>Phone</h4>
@@ -1225,7 +1150,7 @@
   </main>
 
   <script>
-    // Theme Switcher (Default: Dark)
+    // Theme Switcher
     const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = themeBtn.querySelector('i');
     const root = document.documentElement;
@@ -1233,12 +1158,7 @@
     function applyTheme(theme) {
       root.setAttribute('data-theme', theme);
       localStorage.setItem('aman-theme', theme);
-
-      if (theme === 'dark') {
-        themeIcon.className = 'fa-solid fa-moon';
-      } else {
-        themeIcon.className = 'fa-solid fa-sun';
-      }
+      themeIcon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
     }
 
     const cachedTheme = localStorage.getItem('aman-theme');
@@ -1269,6 +1189,52 @@
           icon.classList.remove('fa-xmark');
         }
       });
+    });
+
+    // Inlined Service Worker (Generated via Blob URL)
+    if ('serviceWorker' in navigator) {
+      const swCode = `
+        self.addEventListener('install', (e) => self.skipWaiting());
+        self.addEventListener('activate', (e) => self.clients.claim());
+        self.addEventListener('fetch', (e) => e.respondWith(fetch(e.request).catch(() => new Response('Offline'))));
+      `;
+      const blob = new Blob([swCode], { type: 'application/javascript' });
+      const swUrl = URL.createObjectURL(blob);
+
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register(swUrl)
+          .then(() => console.log('Single-file PWA Worker active'))
+          .catch((err) => console.log('Worker Notice:', err));
+      });
+    }
+
+    // Android Install Prompt Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('pwa-install-btn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (installBtn) {
+        installBtn.style.display = 'grid';
+      }
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            installBtn.style.display = 'none';
+          }
+          deferredPrompt = null;
+        }
+      });
+    }
+
+    window.addEventListener('appinstalled', () => {
+      if (installBtn) installBtn.style.display = 'none';
     });
   </script>
 </body>
