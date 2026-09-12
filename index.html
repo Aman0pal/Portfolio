@@ -11,16 +11,14 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Aman" />
+  <meta name="apple-mobile-web-app-title" content="Aman Portfolio" />
+  <link rel="manifest" href="manifest.json" />
 
-  <!-- Single-File Inline Web App Manifest (Data URI) -->
-  <link rel="manifest" href='data:application/manifest+json,{"name":"Aman — AI & ML Engineer","short_name":"Aman","start_url":".","display":"standalone","background_color":"#050608","theme_color":"#10b981","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 512 512%27%3E%3Crect width=%27512%27 height=%27512%27 rx=%27128%27 fill=%27%2310b981%27/%3E%3Ctext x=%2750%25%27 y=%2755%25%27 text-anchor=%27middle%27 dominant-baseline=%27middle%27 font-family=%27sans-serif%27 font-weight=%27800%27 font-size=%27320%27 fill=%27%23050608%27%3EA%3C/text%3E%3C/svg%3E","sizes":"512x512","type":"image/svg+xml","purpose":"any maskable"}]}' />
-
-  <!-- Tab Favicon -->
+  <!-- Aesthetic Tab Favicon -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2310b981'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Syne, sans-serif' font-weight='800' font-size='42' fill='%23050608'%3EA%3C/text%3E%3C/svg%3E" />
-
-  <!-- Fonts & Icons -->
+  
+  <!-- Aesthetic Google Fonts: Syne, Space Grotesk & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -29,12 +27,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
+    /* ==========================================================================
+       TACTILE PALETTE & GLOW TOKENS
+       ========================================================================== */
     :root,
     [data-theme="dark"] {
       --font-display: 'Syne', sans-serif;
       --font-main: 'Space Grotesk', -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
+      /* Dark Theme: Obsidian Palette */
       --bg-root: #050608;
       --bg-surface: rgba(13, 16, 23, 0.72);
       --bg-surface-elevated: rgba(22, 27, 38, 0.65);
@@ -47,6 +49,7 @@
       --dot-color: rgba(255, 255, 255, 0.045);
       --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
 
+      /* Terminal Tokens */
       --term-bg: #090b10;
       --term-border: rgba(255, 255, 255, 0.08);
       --term-topbar: rgba(255, 255, 255, 0.02);
@@ -90,6 +93,7 @@
       --glow-emerald: 0 14px 32px -8px rgba(5, 150, 105, 0.18), 0 0 0 1px rgba(5, 150, 105, 0.4);
     }
 
+    /* Base Atmosphere */
     * {
       margin: 0;
       padding: 0;
@@ -158,6 +162,7 @@
       color: inherit;
     }
 
+    /* Navbar */
     .navbar {
       position: sticky;
       top: 1rem;
@@ -271,6 +276,7 @@
       display: none;
     }
 
+    /* Hero Section */
     .hero {
       padding-top: 4.5rem;
       padding-bottom: 4.5rem;
@@ -477,6 +483,7 @@
       transform: translateY(-3px);
     }
 
+    /* Terminal Window */
     .terminal-window {
       background: var(--term-bg);
       border: 1px solid var(--term-border);
@@ -525,6 +532,7 @@
     .term-string { color: var(--term-string); }
     .term-key { color: var(--term-text); }
 
+    /* Bento Cards */
     .section-header { margin-bottom: 3.5rem; }
 
     .section-label {
@@ -629,6 +637,7 @@
       color: var(--accent-emerald);
     }
 
+    /* Projects */
     .project-card {
       display: flex;
       flex-direction: column;
@@ -686,6 +695,7 @@
       background: rgba(16, 185, 129, 0.14);
     }
 
+    /* Resume Banner */
     .resume-frame {
       background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-elevated) 100%);
       border: 1px solid var(--border-subtle);
@@ -718,6 +728,7 @@
       font-size: 0.96rem;
     }
 
+    /* Contact Grid */
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -776,6 +787,7 @@
       line-height: 1.3;
     }
 
+    /* Responsiveness */
     @media (max-width: 992px) {
       .hero-split {
         grid-template-columns: 1fr;
@@ -839,7 +851,7 @@
       </nav>
 
       <div class="nav-actions">
-        <!-- Direct Install Button in Navbar -->
+        <!-- Install App Button (Auto-shows when browser triggers install eligibility) -->
         <button id="pwa-install-btn" class="theme-btn" aria-label="Install App" style="display: none;" title="Install App">
           <i class="fa-solid fa-download"></i>
         </button>
@@ -900,6 +912,7 @@
             </div>
           </div>
 
+          <!-- Terminal -->
           <div class="hero-right">
             <div class="terminal-window">
               <div class="terminal-topbar">
@@ -1150,7 +1163,7 @@
   </main>
 
   <script>
-    // Theme Switcher
+    // Theme Switcher (Default: Dark)
     const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = themeBtn.querySelector('i');
     const root = document.documentElement;
@@ -1158,7 +1171,12 @@
     function applyTheme(theme) {
       root.setAttribute('data-theme', theme);
       localStorage.setItem('aman-theme', theme);
-      themeIcon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+
+      if (theme === 'dark') {
+        themeIcon.className = 'fa-solid fa-moon';
+      } else {
+        themeIcon.className = 'fa-solid fa-sun';
+      }
     }
 
     const cachedTheme = localStorage.getItem('aman-theme');
@@ -1191,24 +1209,15 @@
       });
     });
 
-    // Inlined Service Worker (Generated via Blob URL)
+    // PWA Service Worker & Install Prompt Registration
     if ('serviceWorker' in navigator) {
-      const swCode = `
-        self.addEventListener('install', (e) => self.skipWaiting());
-        self.addEventListener('activate', (e) => self.clients.claim());
-        self.addEventListener('fetch', (e) => e.respondWith(fetch(e.request).catch(() => new Response('Offline'))));
-      `;
-      const blob = new Blob([swCode], { type: 'application/javascript' });
-      const swUrl = URL.createObjectURL(blob);
-
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register(swUrl)
-          .then(() => console.log('Single-file PWA Worker active'))
-          .catch((err) => console.log('Worker Notice:', err));
+        navigator.serviceWorker.register('./sw.js')
+          .then(() => console.log('Service Worker Registered'))
+          .catch((err) => console.error('Service Worker Registration Failed:', err));
       });
     }
 
-    // Android Install Prompt Logic
     let deferredPrompt;
     const installBtn = document.getElementById('pwa-install-btn');
 
@@ -1235,6 +1244,7 @@
 
     window.addEventListener('appinstalled', () => {
       if (installBtn) installBtn.style.display = 'none';
+      console.log('App successfully installed!');
     });
   </script>
 </body>
